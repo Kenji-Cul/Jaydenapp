@@ -7,7 +7,7 @@ include("projectinfo.php");
 
 
 	<head>
-		<title>User Registry Page</title>
+		<title>Register</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!---Links For The Page--->
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -164,7 +164,7 @@ $output = $objuser ->createUser(strip_tags($_POST['name']),strip_tags($_POST['em
 	<div class="col-md-6">
 		<div class="test">
 		<form action=" " method="POST">
-			<h4 align="center">Jayden & Alexis<img src="images/j_icon.png"></h4>
+			<h4 align="center"><?php echo MY_APP_NAME?><img src="images/j_icon.png"></h4>
 <label for="textbox1"></label><input type="text"  name="name" placeholder="Your Name"  id="textbox1" value="<?php if(isset($_POST['name'])){
 			echo $_POST['name'];
 		} ?>">

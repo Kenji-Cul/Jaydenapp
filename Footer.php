@@ -19,6 +19,7 @@
 	}
 	a:hover{
 		color: black;
+		text-decoration: none;
 	}
 	i{
 		font-size: 20px;
@@ -48,17 +49,18 @@
 <div class="col-md-1" style="height:400px; background-color:rgb(0,0,0,0.1);">
 </div>
 <div class="col-md-4" style="height:400px; background-color:rgb(0,0,0,0.1)">
-	<h3 >Support</h3><a href="contact_page.php"><p >GetHelp</p></a><a href="updatedabout.php"><p>Jayden & Alexis Care</p></a><a href="updatedabout.php"><p>Manage Jayden & Alexis</p></a><a href="Services_page.php" target="_blank"><p>Online Store</p></a><a href="Services_page.php" target="_blank"><p>E-shop</p></a>
+	<h3 >Support</h3></a><a href="updatedabout.php"><p><?php echo MY_APP_NAME?> Care</p></a><a href="updatedabout.php"><p>Manage <?php echo MY_APP_NAME?></p></a>
+	<a href="homepractice.php"><p>FrontEnd Project</p></a>
 </div>
 <div class="col-md-4" style="height:400px; background-color:rgb(0,0,0,0.1)">
-	<h3>Company</h3><a href="updatedabout.php" target="_blank"><p>About Us</p></a><a href="updateduserpage.php" target="_blank"><p>Register</p></a><a href="contact_page.php" target="_blank"><p>Contact Us</p></a><a href="Services_page.php" target="_blank"><p>Services</p></a>
+	<h3>Company</h3><a href="updatedabout.php" target="_blank"><p>About Us</p></a><a href="updateduserpage.php"><p>Register</p>
 	<h5>Contact Us:</h5>
 	<h5>09074758484</h5>
 </div>
 <div class="col-md-3" style="height:400px; background-color:rgb(0,0,0,0.1)">
-	<h2 >FOR SELLERS AROUND THE WORLD</h2>
+	<h2>FOR SELLERS AROUND THE WORLD</h2>
 	<a href=""><i class="fab fa-facebook"></i></a>
-	<i class="fab fa-instagram"></i>
+	<a href=><i class="fab fa-instagram"></i></a>
 	<i class="fab fa-twitter"></i>
 	<i class="fab fa-youtube"></i>
 	<i class="fab fa-facebook"></i>
@@ -82,7 +84,7 @@
 	</div>
 	<div class="col-md-2" style=" padding:15px;">
 		<div class="top">
-			<a href="Updatedversion.php"><i class="fas fa-long-arrow-alt-up"></i></a>
+			<a href="index.php"><i class="fas fa-long-arrow-alt-up"></i></a>
 		</div>
 	</div>
 </div>

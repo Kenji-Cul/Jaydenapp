@@ -42,7 +42,7 @@ class user{
  	if($this->dbcon->affected_rows == 1){
              return "<div class='alert alert-success'><h2 align='center'>Thanks for Registering!</h2></div>";
  	}else{
- 		return $this->dbcon->error;   //"<div class='alert alert-danger'><h2 align='center'>We were not able to add your information,Try again Later</h2></div>";
+ 		return "<div class='alert alert-danger'><h2>This email address already exists</h2></div>";//$this->dbcon->error;   
  	}
  }
 
@@ -50,12 +50,12 @@ class user{
 
 
 function login($email,$password){
-	$pwd="$password";
+	$pwd=md5($password);
    //write the query
-   $sql = "SELECT * FROM user WHERE email='$email' AND $password='$pwd'";
+   $sql = "SELECT * FROM user WHERE email='$email' AND password='$pwd'";
 
    $result =$this->dbcon->query($sql);
-$row = $result->fetch_assoc();
+   $row = $result->fetch_assoc();
    if($result->num_rows == 1){
       return $row;
    }else{
@@ -89,6 +89,19 @@ function checkemailaddress($emailaddress,$userid){
 		return $this->dbcon->error;
 	}
 }
+
+function checkEmailaddresses($email){
+		//write query
+		$sql = "SELECT emailaddress FROM users WHERE emailaddress ='$email'";
+		// run the query
+
+		$result = $this->dbcon->query($sql);
+		if($this->dbcon->affected_rows == 1){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 function getuser($userid){
      //write the query
@@ -193,8 +206,48 @@ function viewproduct($product){
 		}
 }
 
+function viewproductorder($orderref){
+	$sql ="SELECT * FROM order_details where order_ref='$orderref'";
+	$result = $this->dbcon->query($sql);
+	$rows = array();
+		if($this->dbcon->affected_rows > 0){
+			while($row = $result->fetch_assoc()){
+				$rows[] = $row;
+			}
+			return $rows;
+		}else{
+			return $rows;
+		}
+}
+
+function vieworderhistory($orderhist){
+	$sql ="SELECT * FROM order_details where user_id='$orderhist'";
+	$result = $this->dbcon->query($sql);
+	$rows = array();
+		if($this->dbcon->affected_rows > 0){
+			while($row = $result->fetch_assoc()){
+				$rows[] = $row;
+			}
+			return $rows;
+		}else{
+			return $rows;
+		}
+}
+
+function viewamount($orderref){
+	$sql ="SELECT SUM(amount) FROM order_details WHERE order_ref='$orderref'";
+	$result = $this->dbcon->query($sql);
+		$row = $result->fetch_assoc();
+   if($result->num_rows == 1){
+      return $row;
+   }else{
+   	return $row;
+   }
+		
+}
+
 function viewofproduct($product){
-	$sql ="SELECT * FROM product WHERE category = '$product' LIMIT 8";
+	$sql ="SELECT * FROM product WHERE category = '$product' order by rand() LIMIT 8";
 	$result = $this->dbcon->query($sql);
 	$rows = array();
 		if($this->dbcon->affected_rows > 0){
@@ -302,6 +355,17 @@ function addorder($userid,$price,$name,$location){
 
 }
 
+function insertorder($productid,$orderref,$amount,$userid){
+   $sql = "INSERT INTO order_details(product_id,order_ref,amount,user_id) VALUES('$productid','$orderref','$amount','$userid')";
+	$result = $this->dbcon->query($sql);
+	if($this->dbcon->affected_rows > 0){
+             return true;
+ 	}else{
+ 		return false;  
+ 	}
+
+}
+
 function vieworders(){
 	$sql = "SELECT * FROM productorder";
 	$result = $this->dbcon->query($sql);
@@ -315,6 +379,7 @@ function vieworders(){
 			return $rows;
 		}
 }
+
 
 
 }

@@ -26,19 +26,18 @@ session_start();
 	<!---Header Part of all the pages---->
 			<header class="row navbar fixed-top navbar-light bg-light" id="row_first" style="background-color:#f1f1f1!important; padding:10px; overflow:hidden;">
 			<div class="col-md-3" id="head">
-			<h3 id="h1tag" class="animate__animated animate__wobble">Jayden & Alexis</h3>
+			<a href="index.php" style="color:black;"><h3 id="h1tag" class="animate__animated animate__wobble"><?php echo MY_APP_NAME?></h3></a>
 		</div>
 			<div class="col-md-7">
 				<ul style="padding: 2px; width:100%; display:flex;">
-						<li><a href="Updatedversion.php">HOME</a></li>
-						<li><a href="updatedabout.php" target="_blank">ABOUT</a></li>
-						<li><a href="Shirts.php" target="_blank">SERVICES</a></li>
-						<li><a href="updateduserpage.php" target="_blank">Register</a></li>
+						<li><a href="index.php">HOME</a></li>
+						<li><a href="updatedabout.php">ABOUT</a></li>
+						<li><a href="updateduserpage.php">Register</a></li>
 					</ul>
 
 			</div>
 			<div class="col-md-2">
-				<i class="fas fa-shopping-cart" style="font-size:20px;"></i>
+				<a href="showcart.php" style="color:black;"><i class="fas fa-shopping-cart" style="font-size:20px;"></i></a>
 				
 		</header>
 	</div>

@@ -24,7 +24,7 @@
 		<!---Another header for all the pages---->
 <div class="row" id="row_first" style="background-color:#f1f1f1!important; padding:10px;">
 			<div class="col-5" id="head">
-			<a href="Updatedversion.php" target="_blank" style="color:black;"><h3 id="h1tag" class="animate__animated animate__wobble">Jayden & Alexis</h3></a>
+			<a href="index.php"  style="color:black;"><h3 id="h1tag" class="animate__animated animate__wobble"><?php echo MY_APP_NAME?></h3></a>
 		</div>
 			<div class="col-5">
 				<div class="menu-icon">
@@ -33,7 +33,7 @@
 			</div>
 			</div>
 			<div class="col-2">
-				<a href="showcart.php"><i class="fas fa-shopping-cart" style="font-size:20px; padding-left: 15px;"></i></a>
+				<a href="showcart.php" style="color:black;"><i class="fas fa-shopping-cart" style="font-size:20px; padding-left: 15px;"></i></a>
 				
 		</div>
 	</div>
@@ -43,10 +43,9 @@
 <div class="row" style="border-bottom:2px solid rgba(203,32,38,0.9); background-color:rgb(0,0,0,0.6);" id="second_row">
 	<div class="col-md-12">
 		<ul>
-						<li><a href="Updatedversion.php">HOME</a></li>
-						<li><a href="updatedabout.php" target="_blank">ABOUT</a></li>
-						<li><a href="Shoes.php" target="_blank">SERVICES</a></li>
-						<li><a href="updateduserpage.php" target="_blank">Register</a></li>
+						<li><a href="index.php">HOME</a></li>
+						<li><a href="updatedabout.php">ABOUT</a></li>
+						<li><a href="updateduserpage.php">Register</a></li>
 					</ul>
 	</div>
 </div>

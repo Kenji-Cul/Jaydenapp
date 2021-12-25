@@ -54,13 +54,13 @@ include("header2.php");
 		<?php 
     $obj = new user;
     $productview = $obj->viewproducts();
-
+     $counter = 0;
     if(!empty($productview)){
        foreach ($productview as $key => $value) {
       
 		?>
 				<tr>
-					<td><?php echo $value['product_id']?></td>
+					<td><?php echo ++$counter?></td>
 					<td><?php echo $value['product_name']?></td>
 					<td><?php echo $value['description']?></td>
 					<td><span>&#8358;<?php echo $value['selling_price']?></span></td>

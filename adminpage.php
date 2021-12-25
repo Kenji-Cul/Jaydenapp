@@ -1,12 +1,16 @@
 <?php 
 session_start();
 include("projectinfo.php");
+if(isset($_SESSION['user_name']) || isset($_SESSION['role_id'])){
+}else{
+	header("Location:index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Adminpage</title>
+	<title><?php echo MY_APP_NAME?></title>
 
 	<!----Links For The Page-->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
@@ -98,8 +102,8 @@ input:focus{
 	box-shadow: 0,0, 2px 1px  #7ed32180;
 	border: 1px solid #7ed321!important; }
 	#signbutton{
-     	width: 40%;
-     	height: 10%;
+     	width: 95%;
+     	height: 8%;
      	border: none;
      	background-color: rgba(0,65,56,43);
      	transform: translate(20px);
@@ -118,13 +122,12 @@ input:focus{
 	<div class="container-fluid">
 			<header class="row navbar fixed-top navbar-light bg-light" id="row_first" style="background-color:#f1f1f1!important; padding:10px; overflow:hidden; width:100%;">
 			<div class="col-md-4" id="head">
-			<h3 id="h1tag" class="animate__animated animate__wobble">Jayden & Alexis</h3>
+			<h3 id="h1tag" class="animate__animated animate__wobble"><?php echo MY_APP_NAME?></h3>
 		</div>
 			<div class="col-md-6">
 				<ul style="padding: 2px; width:100%; display:flex;">
-						<li><a href="Updatedversion.php">HOME</a></li>
+						<li><a href="index.php" target="_blank">HOME</a></li>
 						<li><a href="updatedabout.php" target="_blank">ABOUT</a></li>
-						<li><a href="contact_page.php" target="_blank">CONTACT US</a></li>
 						<li><a href="updateduserpage.php" target="_blank">Register</a></li>
 					</ul>
 			</div>
@@ -163,12 +166,39 @@ $(".list").click(function(){
 </div>
 
 
+<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-body">
+						<img src="images/userpng.png" width="20%" height="30%">
+			</div>
+
+<!--Username Part for the Admin--->
+<div class="row">
+	<div class="col-md-12">
+		<h4 align="center" style="color:black;">Name: <?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}?></h4>
+	</div>
+</div>
+
+<!---Email Part of The Admin-->
+<div class="row">
+	<div class="col-md-12">
+		<h4 align="center" style="color:black;">Email: <?php if(isset($_SESSION['user_email'])){
+			echo $_SESSION['user_email'];
+		}?></h4>
+	</div>
+</div>
 
 
 <div class="row">
-	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<a href="products.php" class="btn btn-success">My Products</a>
+		<a href="ordertable.php" class="btn btn-success">View Orders</a>
+	</div>
+	<div class="col-md-5">
+	</div>
 	<div class="col-md-3 product" id="prod2" style="min-height:300px; background-color: #f1f1f1; box-shadow:3px 3px 20px grey!important;">
-		<h1>Your Products</h1>
+		<h2>Add Products</h2>
 		<!---Validation for the products--->
 		<?php 
 		if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -210,57 +240,21 @@ $(".list").click(function(){
 			<input type="text"  name="price" placeholder="Your Price"  id="textbox2">
 			<input type="text"  name="quantity" placeholder="Quantity"  id="textbox2">
 			<input type="file" name='image'>
-			<input type="submit"  name="prod" value="Add Product Details" class="btn btn-primary">
+			<input type="submit"  name="prod" value="Add Product Details" id="signbutton">
 		</form>
 
 		
 	</div>
-	<div class="col-md-5"></div>
 </div>
 
 
-<div class="row">
-	<div class="col-md-12">
-		
-	</div>
-</div>
-
-	<div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-body">
-						
-			</div>
-
-<div class="row">
-	<div class="col-md-12">
-</h4>
-</div>
-	</div>
-</div>
-
-<!--Username Part for the Admin--->
-<div class="row">
-	<div class="col-md-12">
-		<h4 align="center" style="color:black;">Name: <?php if(isset($_SESSION['user_name'])){echo $_SESSION['user_name'];}?></h4>
-	</div>
-</div>
-
-<!---Email Part of The Admin-->
-<div class="row">
-	<div class="col-md-12">
-		<h4 align="center" style="color:black;">Email: <?php if(isset($_SESSION['user_email'])){
-			echo $_SESSION['user_email'];
-		}?></h4>
-	</div>
-</div>
+	
 
 <!---Admin Buttons for checking of product and datails-->
 
 <div class="row">
 	<div class="col-md-12">
-		<a href="products.php" class="btn btn-success">My Products</a>
-		<a href="usertable.php" class="btn btn-success">User Details</a>
+		
 	</div>
 </div>
 

@@ -3,7 +3,7 @@ session_start();
 session_unset();
 session_destroy();
 
-header("Location: Updatedversion.php?msg=Successfully logged out");
+header("Location: index.php?msg=Successfully logged out");
 
 ?>
 

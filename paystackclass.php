@@ -54,7 +54,7 @@ class Payment{
   $response = curl_exec($ch);
 
   if (curl_error($ch)) {
-  	echo curl_error($ch);
+  	//echo curl_error($ch);
   }
 
   // step 4: close curl session

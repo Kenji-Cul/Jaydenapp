@@ -15,9 +15,12 @@ if(!empty($product_id)){
 		$_SESSION['cart'][$product_id]++;
 	}
 // die("I got here");
-	header("Location: Updatedversion.php");
+	header("Location: index.php");
 
 	//echo "<pre>".print_r($_SESSION['cart'],1)."</pre>";
 }
+
+
+
 
 ?>

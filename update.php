@@ -6,7 +6,7 @@
 
 			<div class="col-md-3">
 				<ul style="padding: 2px; width:100%; display:flex;">
-						<li><a href="Updatedversion.php">HOME</a></li>
+						<li><a href="index.php">HOME</a></li>
 						<li><a href="updatedabout.php" target="_blank">ABOUT</a></li>
 <li><p style="color:black; font-weight:bold;"><?php if(isset($_SESSION['user_name'])){ echo "Hi,".$_SESSION['user_name'];}?></a></p></li>
 					</ul>
@@ -52,7 +52,7 @@
 
 			<div class="col-md-3">
 				<ul style="padding: 2px; width:100%; display:flex;">
-						<li><a href="Updatedversion.php">HOME</a></li>
+						<li><a href="index.php">HOME</a></li>
 						<li><a href="updatedabout.php" target="_blank">ABOUT</a></li>
 <li><p style="color:black; font-weight:bold;"><?php if(isset($_SESSION['user_name'])){ echo "Hi,".$_SESSION['user_name'];}?></a></p></li>
 					</ul>

@@ -6,7 +6,7 @@ include("projectinfo.php");
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Shoes Page</title>
+	<title>Shoes</title>
 
 
 	<!--Links for the page--->
@@ -25,6 +25,23 @@ include("projectinfo.php");
 			transform: translateY(-20px);
 			transition: 0.9s;
 		}
+		#signbutton{
+     	width: 40%;
+     	height: 10%;
+     	border-radius: 5px;
+     	position: relative;
+     	left: 150px;
+     	padding: 8px;
+     	border: none;
+     	background-color: rgba(0,65,56,43);
+     	transform: translate(20px);
+     	color: #ccc;
+     }
+     #signbutton:hover{
+     	background-color: rgba(0,0,0,0.4);
+     	transition: 0.5s;
+
+     }
 		</style>
 </head>
 <body>
@@ -33,21 +50,21 @@ include("projectinfo.php");
 	<!--Header Part-->
 	<header class="row navbar fixed-top navbar-light bg-light" id="row_first" style="background-color:#f1f1f1!important; padding:10px; overflow:hidden;">
 			<div class="col-md-4" id="head">
-			<a href="Updatedversion.php" target="_blank"><h3 id="h1tag" class="animate__animated animate__wobble">Jayden & Alexis</h3></a>
+			<a href="index.php" target="_blank"><h3 id="h1tag" class="animate__animated animate__wobble"><?php echo MY_APP_NAME?></h3></a>
 		</div>
 			<div class="col-md-6">
 				<ul style="padding: 2px; width:100%; display:flex;">
-						<li><a href="Updatedversion.php">HOME</a></li>
-						<li><a href="updatedabout.php" target="_blank">ABOUT</a></li>
-						<li><a href="contact_page.php" target="_blank">CONTACT US</a></li>
-						<li><a href="Services_page.php" target="_blank">SERVICES</a></li>
-						<li><a href="updateduserpage.php" target="_blank">Register</a></li>
+						<li><a href="index.php">HOME</a></li>
+						<li><a href="Shirts.php">Shirts</a></li>
+						<li><a href="Joggers.php">Trousers</a></li>
+						<li><a href="Cardigans.php">Hoodies</a></li>
+						<li><a href="updatedabout.php">ABOUT</a></li>
+						<li><a href="updateduserpage.php">Register</a></li>
+						<li> <a href="logoutpage.php"  style="color:black; text-decoration:none; font-weight:bold;"><?php if(isset($_SESSION['user_name'])){?>Logout<?php }?></a></li>
 					</ul>
 			</div>
 			<div class="col-md-2">
-				<a href="biopage.php" target="_blank" style="color:black;"><i class="fa fa-user" style="font-size:20px;"></i></a>
 				<a href="showcart.php"><i class="fas fa-shopping-cart" style="font-size:20px;"></i></a>
-	      <a href="logoutpage.php" target="_blank" style="color:black; text-decoration:none; font-weight:bold;"><?php if(isset($_SESSION['user_name'])){?>Logout<?php }?></a>
 		</header>
 <div class="row">
 	<div class="col-md-12"></div>
@@ -82,7 +99,7 @@ include("projectinfo.php");
 		<?php }?>
 			<p style="font-size: 20px; font-weight:bold;"><span><?php echo $value['product_name']?></span></p>
 <p style="font-size: 18px; font-weight:bold; line-height:9px;"><span>&#8358;</span><?php echo number_format($value['selling_price']);?></p>
-<a href="cart.php?productid=<?php echo  $value['product_id'];?>" class="btn btn-primary">ADD TO CART</a>
+<a href="cart.php?productid=<?php echo  $value['product_id'];?>" id="signbutton">ADD TO CART</a>
 	</div>
 	
 <?php
